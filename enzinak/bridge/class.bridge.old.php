@@ -1,10 +1,10 @@
 <?php
 /**
- * @filename class.dbagent.php
+ * @filename class.Bridge.php
  * @author Abhishek Kumar
 **/
 
-class dbagent 
+class Bridge 
 {
 	public static function query($iQuery, $iReturn)
 	{

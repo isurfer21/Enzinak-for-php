@@ -1,10 +1,10 @@
 <?php
 /**
- * @filename class.dbagent.php
+ * @filename class.bridge.php
  * @author Abhishek Kumar
 **/
 
-class dbagent 
+class Bridge 
 {
 	public static function query($iQuery, $iReturn)
 	{
@@ -18,16 +18,16 @@ class dbagent
 					mysqli_free_result($result);
 					$output['success'] = $data;
 				} else {
-					$output['affected_rows'] = mysqli_affected_rows();
-					$output['insert_id'] = mysqli_insert_id();
+					$output['affected_rows'] = mysqli_affected_rows($connection);
+					$output['insert_id'] = mysqli_insert_id($connection);
 					$output['success'] = $result;
 				}
 				mysqli_close($connection);    
 			} else {
-				$output['failure'] = mysqli_error();  
+				$output['failure'] = mysqli_error($connection);  
 			}
 		} else {
-			$output['failure'] = mysqli_error();
+			$output['failure'] = mysqli_error($connection);
 		}
 		return $output;
 	}
