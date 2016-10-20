@@ -14,7 +14,7 @@ class Bridge
 			if($result = mysqli_query($connection, $iQuery)) {
 				if($iReturn) {
 					$output['num_rows'] = mysqli_num_rows($result);
-					while ($data[] = mysqli_fetch_array($result, MYSQL_ASSOC));
+					while ($data[] = mysqli_fetch_array($result, MYSQLI_ASSOC));
 					mysqli_free_result($result);
 					$output['success'] = $data;
 				} else {
